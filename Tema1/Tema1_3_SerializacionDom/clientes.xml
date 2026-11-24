@@ -1,0 +1,15 @@
+<?xml version=”1.0” encoding=”UTF-8”?>
+<clientes>
+    <cliente DNI=”11222333A”>
+        <apellidos>Luque</apellidos>
+        <CP>14900</CP>
+    </cliente>
+    <cliente DNI=”22333444B”>
+        <apellidos>Lopera</apellidos>
+        <CP>14900</CP>
+    </cliente>
+    <cliente DNI=”33444555C”>
+        <apellidos>Competa</apellidos>
+        <CP>14950</CP>
+    </cliente>
+</clientes>

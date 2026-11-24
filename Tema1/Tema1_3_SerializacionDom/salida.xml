@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clientes>
+    <cliente DNI="11444555D">
+        <apellidos>Lozano</apellidos>
+        <validez estado="borrado" timestamp="456342133"/>
+    </cliente>
+</clientes>
