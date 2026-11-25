@@ -16,13 +16,15 @@ import java.io.IOException;
  *
  * @author miguel
  */
-public class Ejercicio3 {
+public class Ejercicio3_Binario_DataOutput_InputStream {
     public static void main(String[] args) {
         String[] nombre = new String[]{"Lucas", "Lucía", "Hugo", "Sofía"};
         int[] edad = new int[]{13, 21, 18, 19};
         try {
             File f = new File ("alumnos.bin");
+            // abrimos para escribir (binario)| permite escribir bytes en el archivo
             FileOutputStream fos = new FileOutputStream(f);
+            // DataOutputStream nos permite escribir diferentes tipos de datos
             DataOutputStream dos = new DataOutputStream(fos);
             for(int i = 0 ; i<nombre.length; i++){
                 dos.writeUTF(nombre[i]);
@@ -34,13 +36,16 @@ public class Ejercicio3 {
         } catch (FileNotFoundException  e) {
             System.err.println(e.getMessage());
         } catch (IOException ex) {
-            System.getLogger(Ejercicio3.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            System.getLogger(Ejercicio3_Binario_DataOutput_InputStream.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
         
         try{
+            // (binario)
+            //DataInputStream nos permite tratar con diferentes tipos de datos
             DataInputStream dis = new DataInputStream(new FileInputStream("alumnos.bin"));
-            int byteLeido;
-            for(int i = 0 ; i<nombre.length; i++){
+                                        //FileInputStream permite leer bytes del archivo
+            
+                                        for(int i = 0 ; i<nombre.length; i++){
                 System.out.println("Nombre: "+ dis.readUTF() + " edad: " + dis.readInt());
             }
             
@@ -48,8 +53,23 @@ public class Ejercicio3 {
         catch (FileNotFoundException e){
             System.err.println(e.getMessage());
         } catch (IOException ex) {
-            System.getLogger(Ejercicio3.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            System.getLogger(Ejercicio3_Binario_DataOutput_InputStream.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
+        
+        
+        // String nombre[x]
+        // String edad[x]
+        // nombre:(nombre)\tedad:(edad)\n
+        
+        
+        // String nombre[x]
+        // String edad[x]
+        // nombre:(nombre)\tedad:(edad)\n
+        
+        
+        // String nombre[x]
+        // String edad[x]
+        // nombre:(nombre)\tedad:(edad)\n
         
         
         // String nombre[x]

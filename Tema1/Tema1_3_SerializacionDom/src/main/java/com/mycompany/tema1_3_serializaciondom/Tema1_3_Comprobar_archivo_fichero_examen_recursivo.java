@@ -12,6 +12,7 @@ import java.io.File;
  */
 public class Tema1_3_Comprobar_archivo_fichero_examen_recursivo {
     public static void main(String[] args) {
+        //loc ruta de donde nos encontramos, se pasa como parametro de ejecucion
         File loc = new File(args[0]);
         DatosFile(loc, "");
         
@@ -19,12 +20,15 @@ public class Tema1_3_Comprobar_archivo_fichero_examen_recursivo {
     
     public static void DatosFile(File loc, String ident){
         System.out.println(ident + loc.getName()+":");
+        
+        //si la ruta apunta a una carpeta, volvemos a llamar a la funcion de analisis
         if(loc.isDirectory()){
             File[] archivos = loc.listFiles();
             for (int i = 0 ; i < archivos.length; i++){
                 DatosFile(archivos[i], ident+"\t");
             }
         }
+        //si la ruta apunta a un fichero analizamos sus caracteristicas
         else if(loc.isFile()){
             String execute = "False";
             String read = "False";

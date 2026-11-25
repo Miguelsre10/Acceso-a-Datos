@@ -22,7 +22,7 @@ import org.w3c.dom.Element;
  * @author miguel
  */
 public class Tema1_3_SerializacionDom {
-
+//Convertimos DOM en un documento de texto xml
     public static void main(String[] args) {
         try{
             //creamos doc
@@ -35,6 +35,7 @@ public class Tema1_3_SerializacionDom {
             Element elmClientes = doc.createElement("clientes");
             doc.appendChild(elmClientes);
             
+            //primer hijo de la raiz
             //elemnto cliente y atributos
             Element elmCliente = doc.createElement("cliente");
             elmCliente.setAttribute("DNI", "11444555D");
@@ -56,6 +57,8 @@ public class Tema1_3_SerializacionDom {
             
             //añadimos cliente a raiz
             elmClientes.appendChild(elmCliente);
+            
+            //fin del primer hijo de la raiz
             
             
             DOMSource domSource = new DOMSource(doc);

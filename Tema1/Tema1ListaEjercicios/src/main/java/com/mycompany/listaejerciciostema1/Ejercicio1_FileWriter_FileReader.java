@@ -4,8 +4,6 @@
  */
 package com.mycompany.listaejerciciostema1;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,7 +13,7 @@ import java.io.IOException;
  *
  * @author miguel
  */
-public class Ejercicio2 {
+public class Ejercicio1_FileWriter_FileReader {
     public static void main(String[] args) {
         String[] provincias = {"Jaén", "Córdoba", "Sevilla", "Huelva", "Cádiz", "Málaga", "Granada", "Almería"};
         
@@ -24,39 +22,47 @@ public class Ejercicio2 {
             System.out.println("Ejemplo: java Ejercicio1 provincias.txt");
             return;
         }
+        //Creamos objeto fichero
         File fichero = new File (args[0]);
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fichero))) {
+        //abrimos el fichero en escritura
+        try (FileWriter fw = new FileWriter(fichero)) { //al declarar con try-with-resources, se cierra solo al terminar el try
+            //recorremos el array de provincias
             for (String provincia : provincias) {
-                bw.write(provincia);
-                bw.newLine();
+                //escribimos las provincias
+                fw.write(provincia + System.lineSeparator());
             }
-            bw.close();
+            fw.close();
             System.out.println("Fichero '" + args[0] + "' creado correctamente.");
         } catch (IOException e) {
             System.out.println("Error al escribir en el fichero: " + e.getMessage());
         }
         
+        //leer el contenido de fichero
         try{
-            BufferedReader br = new BufferedReader(new FileReader(fichero));           
-            String p;
-            int i = 0;
-            String[] provinciasW = new String[8];
-            while ((p = br.readLine()) != null) {
-                provinciasW[i] = p;
-                i++;
+            //abrimos ficnero en modo de lectura
+            FileReader fr = new FileReader(fichero);   
+            //variable auxiliar
+            int c;
+            //avariable de valores
+            String p = "";
+            //mientras que no leea un EOF (End Of File) lee el fichero
+            while ((c = fr.read()) != -1) {
+                p += (char)c;
             }
-
+            //dividimos el string con las provincias
+            String[] provinciasW = p.split("\n");
             System.out.println("\nProvincias leidas del fichero");
             for (String provincia : provinciasW){
                 System.out.println(provincia);
             }
             
-            br.close();
+            //cerramos el fichero
+            fr.close();
         }
         catch(IOException e){
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
-        
+    
     }
     
 }

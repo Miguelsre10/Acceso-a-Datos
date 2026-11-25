@@ -15,6 +15,7 @@ import java.io.*;
  * @author miguel
  */
 public class Ejercicio7_acceso_directo {
+    //lectura escritura por acceso directo
     public static void main(String[] args) {
         String[] nombre = new String[]{"Lucas", "Lucia", "Hugo", "Sofia", "Maria", "Pablo", "Daniel", "Jesus", "Rocio", "Pedro"};
         int[] edad = new int[]{13, 21, 18, 19, 28, 8, 115, 20, 4, 31};
